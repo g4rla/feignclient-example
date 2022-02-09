@@ -1,0 +1,1 @@
+# feignclient-example
