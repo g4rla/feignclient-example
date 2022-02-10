@@ -8,6 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +32,16 @@ public class CustomerController {
 	@GetMapping(ID)
 	public CustomerDTO getCustomerById(@PathVariable long id) {
 		return customerClient.findCustomerById(id);
+	}
+	
+	@PostMapping()
+	public CustomerDTO postCustomer(@RequestBody CustomerDTO customerDTO) {
+		return customerClient.createCustomer(customerDTO);
+	}
+	
+	@PutMapping(ID)
+	public CustomerDTO putCustomer(@PathVariable long id, @RequestBody CustomerDTO customerDTO) {
+		return customerClient.updateCustomer(id, customerDTO);
 	}
 
 }
