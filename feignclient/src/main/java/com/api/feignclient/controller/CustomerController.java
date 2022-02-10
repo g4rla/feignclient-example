@@ -6,6 +6,7 @@ import static com.api.feignclient.constants.CustomerControllerConstants.Controll
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,5 +44,10 @@ public class CustomerController {
 	public CustomerDTO putCustomer(@PathVariable long id, @RequestBody CustomerDTO customerDTO) {
 		return customerClient.updateCustomer(id, customerDTO);
 	}
-
+	
+	@DeleteMapping(ID)
+	public void deleteCustomer(@PathVariable long id) {
+		customerClient.removeCustomer(id);
+	}
+	
 }
