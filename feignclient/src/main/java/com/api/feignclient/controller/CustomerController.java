@@ -1,4 +1,6 @@
-package com.api.feignclient.client.controller;
+package com.api.feignclient.controller;
+
+import static com.api.feignclient.constants.CustomerControllerConstants.ControllerEndpoints.CUSTOMERS;
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ import com.api.feignclient.client.CustomerClient;
 import com.api.feignclient.dto.CustomerDTO;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping(CUSTOMERS)
 public class CustomerController {
 	
 	@Autowired

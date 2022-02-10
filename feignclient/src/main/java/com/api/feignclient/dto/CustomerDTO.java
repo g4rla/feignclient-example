@@ -5,8 +5,8 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CustomerDTO {
-	
-	@JsonProperty("createdAt")
+
+	@JsonProperty("created_at")
 	private Date createdAt;
 
 	@JsonProperty("name")
