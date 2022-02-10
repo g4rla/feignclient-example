@@ -13,6 +13,7 @@ public class ClientConstants {
 	public final class FeignClientEndpoints {
 		private FeignClientEndpoints() {}
 		public static final String V1_CUSTOMERS_CUSTOMER = "/v1/customers/customer";
+		public static final String V1_CUSTOMERS_CUSTOMER_ID = "/v1/customers/customer/{id}";
 	}
 
 }

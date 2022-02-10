@@ -7,6 +7,7 @@ public class CustomerControllerConstants {
 	public static class ControllerEndpoints{
 		private ControllerEndpoints() {}
 		public static final String CUSTOMERS = "/customers";
+		public static final String ID = "/{id}";
 	}
 
 }
