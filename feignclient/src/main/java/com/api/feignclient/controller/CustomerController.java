@@ -6,6 +6,8 @@ import static com.api.feignclient.constants.CustomerControllerConstants.Controll
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,8 +38,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping()
-	public CustomerDTO postCustomer(@RequestBody CustomerDTO customerDTO) {
-		return customerClient.createCustomer(customerDTO);
+	public ResponseEntity<CustomerDTO> postCustomer(@RequestBody CustomerDTO customerDTO) {
+		return new ResponseEntity<>(customerClient.createCustomer(customerDTO), HttpStatus.CREATED);
 	}
 	
 	@PutMapping(ID)

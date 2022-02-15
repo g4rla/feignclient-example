@@ -14,17 +14,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import com.api.feignclient.client.config.CustomerClientDecoder;
 import com.api.feignclient.dto.CustomerDTO;
 
-@FeignClient(name = FEIGNCLIENT_NAME, url = FEIGNCLIENT_URL)
+@FeignClient(name = FEIGNCLIENT_NAME, url = FEIGNCLIENT_URL, configuration = CustomerClientDecoder.class)
 public interface CustomerClient {
-
 	
 	@GetMapping(value = V1_CUSTOMERS_CUSTOMER)
 	public List<CustomerDTO> findCustomers();
 	
 	@GetMapping(value = V1_CUSTOMERS_CUSTOMER_ID)
-	public CustomerDTO findCustomerById(@PathVariable long id);
+	public CustomerDTO findCustomerById(@PathVariable long id);	
 	
 	@PostMapping(value = V1_CUSTOMERS_CUSTOMER, consumes = "application/json")
 	public CustomerDTO createCustomer(CustomerDTO customerDTO);
